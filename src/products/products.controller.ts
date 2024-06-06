@@ -3,8 +3,11 @@ import { ProductsService } from './products.service';
 import { CreateProductDto } from './dto/create-product.dto';
 import { AuthGuard } from '../auth/guards/auth-guard.service';
 import { Request } from 'express';
+import { ApiBearerAuth, ApiProperty, ApiQuery } from '@nestjs/swagger';
+import { GetProductsDto } from './dto/get-products.dto';
 
 @UseGuards(AuthGuard)
+@ApiBearerAuth()
 @Controller('products')
 export class ProductsController {
   constructor(private readonly productsService: ProductsService) {
@@ -16,6 +19,9 @@ export class ProductsController {
   }
 
   @Get('list')
+  @ApiQuery({name: 'from', required: false})
+  @ApiQuery({name: 'to', required: false})
+
   findAll(@Query('from') from: string,
           @Query('to') to: string) {
 
@@ -26,10 +32,14 @@ export class ProductsController {
   }
 
   @Get()
+  @ApiQuery({name: 'from', required: false})
+  @ApiQuery({name: 'to', required: false})
+
   findAllUserProducts(
+    @Req() req: Request,
     @Query('from') from: string,
     @Query('to') to: string,
-    @Req() req: Request) {
+  ) {
 
     return this.productsService.findAllUserProducts({
       userId: req['user'].id,

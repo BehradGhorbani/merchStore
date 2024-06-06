@@ -1,0 +1,228 @@
+{
+	"info": {
+		"_postman_id": "3aa150a6-e007-43fb-a18a-762161ddfdd7",
+		"name": "merchStore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "16699499"
+	},
+	"item": [
+		{
+			"name": "signUp",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"behrad\",\n    \"lastName\": \"gh\",\n    \"email\": \"behradbh128@gmail.com\",\n    \"password\": \"ddS@123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/sign-up",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"sign-up"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"behradbh128@gmail.com\",\n    \"password\": \"ddS@123456\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/users/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "verifyEmail",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/users/verify?token=",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"users",
+						"verify"
+					],
+					"query": [
+						{
+							"key": "token",
+							"value": ""
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "resendToken",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/token/send-token?email=behradbh128@gmail.com",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"token",
+						"send-token"
+					],
+					"query": [
+						{
+							"key": "email",
+							"value": "behradbh128@gmail.com"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Product",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg5M2Q0MzZmLWFiMzItNGRhMy1hMWE4LTMwZTE0NDRlODQ5MiIsImVtYWlsIjoiYmVocmFkYmgxMjhAZ21haWwuY29tIiwiZXhwaXJlc0F0IjoiMzYwMCIsImlhdCI6MTcxNzYwODU1MX0.aW5kZ0ytrSA5KrgusebtYmfXN9EGzYbfU0tA2BaZ54k",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\": \"kala1\",\n    \"description\": \"bla bla bla\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Products",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg5M2Q0MzZmLWFiMzItNGRhMy1hMWE4LTMwZTE0NDRlODQ5MiIsImVtYWlsIjoiYmVocmFkYmgxMjhAZ21haWwuY29tIiwiZXhwaXJlc0F0IjoiMzYwMCIsImlhdCI6MTcxNzYwODY1N30.L2oV4q6TJ6LIZ2-YUzmyXauuA0x6xCxlljilVNpRwPY",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/products/list?from=0&to=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products",
+						"list"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "0"
+						},
+						{
+							"key": "to",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All User Products",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Ijg5M2Q0MzZmLWFiMzItNGRhMy1hMWE4LTMwZTE0NDRlODQ5MiIsImVtYWlsIjoiYmVocmFkYmgxMjhAZ21haWwuY29tIiwiZXhwaXJlc0F0IjoiMzYwMCIsImlhdCI6MTcxNzYwODY1N30.L2oV4q6TJ6LIZ2-YUzmyXauuA0x6xCxlljilVNpRwPY",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/products?from=0&to=5",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"products"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "0"
+						},
+						{
+							"key": "to",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
